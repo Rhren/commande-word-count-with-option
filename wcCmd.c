@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+//Fonction qui retourne le nombre de caractère du fichier
 int wcOption_c(FILE *fichier)
 {
 	int nbr=0;
@@ -24,6 +24,7 @@ char *allocation(int nbr)
 	}
 	return (tab);
 }
+//Fonction qui retourne le nombre de ligne du fichier
 int wcOption_l(FILE *fichier,char *chaine,int nbr)
 {
 	int i;
@@ -42,6 +43,7 @@ int wcOption_l(FILE *fichier,char *chaine,int nbr)
 	
 	return (j);
 }
+//Fonction qui retourne le nombre de mot du fichier
 int wcOption_w(FILE *fichier,char *chaine,int nbr)
 {
 	int j=0;
@@ -52,23 +54,25 @@ int wcOption_w(FILE *fichier,char *chaine,int nbr)
 		
 		return (j);
 }
+//Fonction qui retourne la valeur maximal de l'affichage
 int wcOption_L(FILE *fichier)
 {
 	int max_caracteres = 0;
-    int caracteres_actuels = 0;
-    int c;
+    	int caracteres_actuels = 0;
+   	 int c;
 
     while ((c = fgetc(fichier)) != EOF) 
     {
         if (c == '\n') 
-        {
+	{
             if (caracteres_actuels > max_caracteres)
             {
                 max_caracteres = caracteres_actuels;
-			}
+		
+	    }
             caracteres_actuels = 0; // Réinitialiser le compteur pour la prochaine ligne
-		} 
-		else 
+	} 
+	else 
         {
             caracteres_actuels++;
         }
@@ -77,7 +81,8 @@ int wcOption_L(FILE *fichier)
     if (caracteres_actuels > max_caracteres)
     {
         max_caracteres = caracteres_actuels;
-	}
+	
+    }
 	return max_caracteres;
 }
 void error()
