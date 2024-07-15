@@ -57,7 +57,7 @@ int wcOption_w(FILE *fichier,char *chaine,int nbr)
 //Fonction qui retourne la valeur maximal de l'affichage
 int wcOption_L(FILE *fichier)
 {
-	int max_caracteres = 0;
+	int max= 0;
     	int caracteres_actuels = 0;
    	 int c;
 
@@ -65,9 +65,9 @@ int wcOption_L(FILE *fichier)
     {
         if (c == '\n') 
 	{
-            if (caracteres_actuels > max_caracteres)
+            if (caracteres_actuels > max)
             {
-                max_caracteres = caracteres_actuels;
+                max= caracteres_actuels;
 		
 	    }
             caracteres_actuels = 0; // Réinitialiser le compteur pour la prochaine ligne
@@ -78,12 +78,12 @@ int wcOption_L(FILE *fichier)
         }
     }
 
-    if (caracteres_actuels > max_caracteres)
+    if (caracteres_actuels > max)
     {
-        max_caracteres = caracteres_actuels;
+        max= caracteres_actuels;
 	
     }
-	return max_caracteres;
+	return max;
 }
 void error()
 {
