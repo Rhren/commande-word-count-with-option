@@ -40,7 +40,7 @@ int wcOption_l(FILE *fichier,char *chaine,int nbr)
 			j++;
 		}
 	}
-	
+	rewind(fichier);
 	return (j);
 }
 //Fonction qui retourne le nombre de mot du fichier
@@ -51,7 +51,7 @@ int wcOption_w(FILE *fichier,char *chaine,int nbr)
 	{
 		j++;
 	}
-		
+		rewind ( fichier); 
 		return (j);
 }
 //Fonction qui retourne la valeur maximal de l'affichage
